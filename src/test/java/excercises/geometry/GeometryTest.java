@@ -1,11 +1,14 @@
 package excercises.geometry;
-import static org.assertj.core.api.Assertions.*;
 
-import exercices.geometry.Geometry.*;
-import exercices.geometry.Provided.*;
-
-import org.junit.*;
+import exercices.geometry.Geometry.ColoredPoint;
+import exercices.geometry.Geometry.Point;
+import exercices.geometry.Provided.Colored;
+import exercices.geometry.Provided.PointItf;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
 import org.junit.runners.MethodSorters;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 // JUnit will execute test methods in the alphabetical order of their names
 @FixMethodOrder (MethodSorters.NAME_ASCENDING)
@@ -29,8 +32,8 @@ public class GeometryTest {
         assertThat(PointItf.class).isAssignableFrom(point.getClass());
         assertThat(PointItf.class).isAssignableFrom(coloredPoint.getClass());
 
-        PointItf p1 = (PointItf)point;
-        PointItf p2 = (PointItf)coloredPoint;
+        PointItf p1 = point;
+        PointItf p2 = coloredPoint;
 
         assertThat(p1.getX()).as("x").isEqualTo(10000000);
         assertThat(p1.getY()).as("y").isEqualTo(0);
@@ -44,7 +47,7 @@ public class GeometryTest {
 
         assertThat(Colored.class).isAssignableFrom(coloredPoint.getClass());
 
-        Colored colored = (Colored) coloredPoint;
+        Colored colored = coloredPoint;
 
         assertThat(colored.getColor()).as("color").isEqualTo("blue");
     }
@@ -57,8 +60,8 @@ public class GeometryTest {
         assertThat(PointItf.class).isAssignableFrom(point.getClass());
         assertThat(PointItf.class).isAssignableFrom(coloredPoint.getClass());
 
-        PointItf p1 = (PointItf) point;
-        PointItf p2 = (PointItf) coloredPoint;
+        PointItf p1 = point;
+        PointItf p2 = coloredPoint;
 
         assertThat(p1.distance(p2)).as("distance").isEqualTo(
                 Math.pow(

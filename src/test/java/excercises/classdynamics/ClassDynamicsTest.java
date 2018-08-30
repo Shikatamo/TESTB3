@@ -1,15 +1,13 @@
 package excercises.classdynamics;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
-import java.io.IOException;
-import java.util.*;
-
-import exercices.classdynamics.ClassDynamics;
 import exercices.classdynamics.Student;
-
-import org.junit.*;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
 import org.junit.runners.MethodSorters;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 // JUnit will execute test methods in the alphabetical order of their names
 @FixMethodOrder (MethodSorters.NAME_ASCENDING)
@@ -39,35 +37,32 @@ public class ClassDynamicsTest {
 
     private List<String> contenu =  Arrays.asList(LIGNE_1, LIGNE_2, LIGNE_3, LIGNE_4, LIGNE_5, LIGNE_6, LIGNE_7, LIGNE_8, LIGNE_9, LIGNE_10, LIGNE_11, LIGNE_12, LIGNE_13,LIGNE_14,LIGNE_15,LIGNE_16,LIGNE_17,LIGNE_18,LIGNE_19,LIGNE_20,LIGNE_21);
 
-    private List<Student> createStudents(List<String> contenu) throws IOException {
-        List<Student> students = new ArrayList<>(contenu.size());
-        for(String s : contenu) {
-            Student student = new Student();
-            String[] values = s.split(",");
-            student.setName(values[0]);
-            student.setFirstAvg(Double.parseDouble(values[1]));
-            student.setSecondAvg(Double.parseDouble(values[2]));
-            student.setThirdAvg(Double.parseDouble(values[3]));
-            students.add(student);
-        }
-        return students;
+    private List<Student> createStudents(List<String> contenu) {
+
+        List<String[]> contenuList = contenu.stream()
+                .map(s -> s.split(","))
+                .collect(Collectors.toList());
+
+        return contenuList.stream()
+                .map(s -> new Student(s[0], Double.parseDouble(s[1]), Double.parseDouble(s[2]), Double.parseDouble(s[3])))
+                .collect(Collectors.toList());
     }
 
     @Test
-    public void aProgression() throws IOException {
+    public void aProgression() {
         ClassDynamics solution = new ClassDynamics(createStudents(contenu));
         assertThat(solution.bestProgression()).isEqualTo("Thomas");
     }
 
     @Test
-    public void  aTopThree() throws IOException {
+    public void aTopThree() {
         String[] expected = {"Marc", "Vincent", "Axelle"};
         ClassDynamics solution = new ClassDynamics(createStudents(contenu));
         assertArrayEquals("The students must be sorted from first to third.\nError", expected, solution.topThree());
     }
 
     @Test
-    public void  theStatSummary() throws IOException {
+    public void theStatSummary() {
         double[] expected = {9.80,11.48,13.69};
         ClassDynamics solution = new ClassDynamics(createStudents(contenu));
         assertArrayEquals("The array must be sorted like {Q1, Med, Q3}. A 0.05 delta is tolerated.\nError", expected, solution.statSummary(), 0.05);
