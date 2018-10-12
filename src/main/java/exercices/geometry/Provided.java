@@ -1,20 +1,26 @@
 package exercices.geometry;
 
 public class Provided {
-    public static interface PointItf {
+    public interface PointItf {
 
-        public int getX();
-        public int getY();
+        int getX();
+
+        int getY();
 
         /**
          * @return Euclidean distance
          */
-        public double distance(PointItf p);
+        default double distance(PointItf p) {
+            return Math.pow(
+                    Math.pow(this.getX() - p.getX(), 2)
+                            + Math.pow(this.getY() - p.getY(), 2),
+                    0.5);
+        }
     }
 
-    public static interface Colored {
+    public interface Colored {
 
-        public String getColor();
+        String getColor();
 
     }
 }

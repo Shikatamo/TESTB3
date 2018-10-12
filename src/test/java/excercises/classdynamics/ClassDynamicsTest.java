@@ -1,5 +1,6 @@
 package excercises.classdynamics;
 
+import exercices.classdynamics.ClassDynamics;
 import exercices.classdynamics.Student;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -8,6 +9,9 @@ import org.junit.runners.MethodSorters;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 // JUnit will execute test methods in the alphabetical order of their names
 @FixMethodOrder (MethodSorters.NAME_ASCENDING)
@@ -51,7 +55,7 @@ public class ClassDynamicsTest {
     @Test
     public void aProgression() {
         ClassDynamics solution = new ClassDynamics(createStudents(contenu));
-        assertThat(solution.bestProgression()).isEqualTo("Thomas");
+        assertEquals(solution.bestProgression(), "Thomas");
     }
 
     @Test
