@@ -13,13 +13,10 @@ public class ClassDynamics {
 
     //Skeletons of test response classes
     public String bestProgression() {
-
-        List<Student> studentWithProgress = students.stream()
+        return students.stream()
                 .filter(student -> student.getFirstAvg() <= student.getSecondAvg() && student.getSecondAvg() <= student.getThirdAvg())
                 .sorted((student, st2) -> (student.getThirdAvg() - student.getFirstAvg()) < (st2.getThirdAvg() - st2.getFirstAvg()) ? 1 : -1)
-                .collect(Collectors.toList());
-
-        return studentWithProgress.get(0).getName();
+                .collect(Collectors.toList()).get(0).getName();
     }
 
     public String[] topThree() {

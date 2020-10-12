@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="excercises.geometry.GeometryTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-10-12T13:46:16" hostname="DESKTOP-0Q9VION" time="0.026">
+  <properties/>
+  <testcase name="a_testExetends" classname="excercises.geometry.GeometryTest" time="0.009"/>
+  <testcase name="b_testGetSet" classname="excercises.geometry.GeometryTest" time="0.002"/>
+  <testcase name="c_testColor" classname="excercises.geometry.GeometryTest" time="0.009"/>
+  <testcase name="d_testDistance" classname="excercises.geometry.GeometryTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

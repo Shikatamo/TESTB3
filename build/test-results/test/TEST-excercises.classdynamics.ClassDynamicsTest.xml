@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="excercises.classdynamics.ClassDynamicsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-10-12T13:46:15" hostname="DESKTOP-0Q9VION" time="0.033">
+  <properties/>
+  <testcase name="aProgression" classname="excercises.classdynamics.ClassDynamicsTest" time="0.02"/>
+  <testcase name="aTopThree" classname="excercises.classdynamics.ClassDynamicsTest" time="0.009"/>
+  <testcase name="theStatSummary" classname="excercises.classdynamics.ClassDynamicsTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
