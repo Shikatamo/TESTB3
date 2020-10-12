@@ -32,8 +32,8 @@ public class GeometryTest {
         assertThat(PointItf.class).isAssignableFrom(point.getClass());
         assertThat(PointItf.class).isAssignableFrom(coloredPoint.getClass());
 
-        PointItf p1 = point;
-        PointItf p2 = coloredPoint;
+        PointItf p1 = (PointItf)point;
+        PointItf p2 = (PointItf)coloredPoint;
 
         assertThat(p1.getX()).as("x").isEqualTo(10000000);
         assertThat(p1.getY()).as("y").isEqualTo(0);
@@ -47,7 +47,7 @@ public class GeometryTest {
 
         assertThat(Colored.class).isAssignableFrom(coloredPoint.getClass());
 
-        Colored colored = coloredPoint;
+        Colored colored = (Colored)coloredPoint;
 
         assertThat(colored.getColor()).as("color").isEqualTo("blue");
     }
@@ -60,8 +60,8 @@ public class GeometryTest {
         assertThat(PointItf.class).isAssignableFrom(point.getClass());
         assertThat(PointItf.class).isAssignableFrom(coloredPoint.getClass());
 
-        PointItf p1 = point;
-        PointItf p2 = coloredPoint;
+        PointItf p1 = (PointItf)point;
+        PointItf p2 = (PointItf)coloredPoint;
 
         assertThat(p1.distance(p2)).as("distance").isEqualTo(
                 Math.pow(

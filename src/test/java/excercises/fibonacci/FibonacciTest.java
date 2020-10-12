@@ -31,6 +31,6 @@ public class FibonacciTest {
     @Test
     public void test_fib_ten() {
         Fibonacci solution = new Fibonacci ();
-        assertThat(solution.evenFibonacci(10_000_000_000L)).isEqualTo(1998167216L);
+        assertThat(solution.evenFibonacci(10_000_000_000L)).isEqualTo(6293134512L);
     }
 }
